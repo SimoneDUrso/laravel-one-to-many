@@ -37,6 +37,23 @@
                     @enderror
                 </div>
 
+                {{-- Tipo progetto --}}
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <label for="" class="form-label">Seleziona tipo progetto</label>
+                        <select name="type_id" id="type" class="form-select form-select-lg">
+                            <option value="">-Seleziona un tipo-</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}" @selected($type->id == old('type_id'))>{{ $type->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('type_id')
+                            <span class="text-danger"> {{ $message }} </span>
+                        @enderror
+                    </div>
+                </div>
+
                 <div class="col-12 col-md-6">
                     <label for="image_project" class="form-label">Immagine progetto</label>
                     <input type="file" class="form-control rounded-pill" name="image_project" id="image_project"

@@ -17,6 +17,11 @@
                                     <td class="fw-bold">{{ $project->name }}</td>
                                 </tr>
                                 <tr>
+                                    <th class="bg-light text-end w-50">Categoria</th>
+                                    <td class="fw-bold">{{ $project->type->name ?? 'tipo non selezionato' }}</td>
+                                </tr>
+
+                                <tr>
                                     <th class="bg-light text-end">Data Progetto:</th>
                                     <td>{{ $project->date }}</td>
                                 </tr>

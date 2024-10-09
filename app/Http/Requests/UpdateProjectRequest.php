@@ -26,9 +26,9 @@ class UpdateProjectRequest extends FormRequest
         return [
             'name' => 'required|max:20',
             'date' => 'required|date',
+            'type_id' => 'nullable|exists:types,id',
             'description' => 'max:1000',
             'image_project' => 'max:255',
-
         ];
     }
 
@@ -39,6 +39,7 @@ class UpdateProjectRequest extends FormRequest
             'name.max' => 'Il nome del progetto deve essere lungo al massimo 20 caratteri',
             'date.required' => 'La data della creazione del progetto è obbligatoria',
             'date.date' => 'Per favore, inserire una data valida',
+            'type_id' => 'Il tipo selezionato non esiste',
             'description.max' => 'Hai superato il limite massimo di caratteri, per favore sii più breve',
             'image_project.max' => "L'URL del progetto deve essere lungo al massimo 255 caratteri",
         ];

@@ -43,7 +43,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-4">
                                         <label for="" class="form-label">Seleziona tipo progetto</label>
-                                        <select name="type" id="type" class="form-select form-select-lg">
+                                        <select name="type_id" id="type" class="form-select form-select-lg">
                                             <option value="">-Seleziona un tipo-</option>
                                             @foreach ($types as $type)
                                                 <option value="{{ $type->id }}">{{ $type->name }}</option>
