@@ -54,4 +54,5 @@
             </div>
         </div>
     </div>
+    @include('admin.types.modal_types')
 @endsection

@@ -24,3 +24,20 @@ buttons.forEach((button) => {
         })
     });
 });
+
+    const buttons_type = document.querySelectorAll('.delete-type');
+
+    buttons_type.forEach((button) => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const modal = document.getElementById('deleteTypeModal');
+            const bootstrap_modal = new bootstrap.Modal(modal);
+            
+            bootstrap_modal.show();
+
+            document.querySelector('.confirm-delete').addEventListener('click', function() {
+                button.parentElement.submit();
+            });
+        });
+    });
