@@ -6,19 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use illuminate\support\Str;
 
-class Project extends Model
+
+class Type extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'date', 'description', 'image_project', 'slug'];
+    protected $fillable = ['name', 'slug'];
 
     public static function generateSlug($name)
     {
         return Str::slug($name, '-');
     }
 
-    public function type()
+    public function projects()
     {
-        return $this->belongsTo(Type::class);
+        return $this->hasMany(Project::class);
     }
 }
