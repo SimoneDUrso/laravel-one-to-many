@@ -18,16 +18,16 @@
                         <thead class="table-dark">
                             <tr>
                                 <th class="text-center">ID</th>
-                                <th>Name</th>
-                                <th class="text-center">Actions</th> <!-- Moved Actions column here -->
+                                <th class="text-center">Name</th>
+                                <th class="text-end pe-5">Actions</th> <!-- Moved Actions column here -->
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($types as $type)
                                 <tr class="border-bottom">
                                     <td class="text-center">{{ $type->id }}</td>
-                                    <td class="fw-bold">{{ $type->name }}</td>
-                                    <td class="text-center"> <!-- Moved action buttons here -->
+                                    <td class="fw-bold text-center">{{ $type->name }}</td>
+                                    <td class="text-end"> <!-- Moved action buttons here -->
                                         <a href="{{ route('admin.types.show', ['type' => $type->id]) }}"
                                             class="btn btn-outline-primary btn-sm mx-1">
                                             <i class="bi bi-eye-fill fs-5"></i>
