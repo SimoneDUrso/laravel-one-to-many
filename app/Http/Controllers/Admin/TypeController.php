@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
@@ -16,7 +16,9 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -26,7 +28,8 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+        return view('admin.types.create', compact('types'));
     }
 
     /**
@@ -35,9 +38,17 @@ class TypeController extends Controller
      * @param  \App\Http\Requests\StoreTypeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTypeRequest $request)
+    public function store(StoreTypeRequest $request, Type $type)
     {
-        //
+        $form_data = $request->all();
+
+        $form_data['slug'] = Type::generateSlug($form_data['name']);
+
+        $type->fill($form_data);
+
+        $type->save();
+
+        return redirect()->route('admin.types.index');
     }
 
     /**
