@@ -24,7 +24,16 @@ class UpdateTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Il nome del tipo è obbligatorio',
+            'name.string' => 'Il nome del tipo deve essere una stringa',
+            'name.max' => 'Il nome del tipo deve essere lungo al massimo 255 caratteri',
         ];
     }
 }

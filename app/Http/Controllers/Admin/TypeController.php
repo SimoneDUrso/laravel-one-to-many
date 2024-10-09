@@ -70,8 +70,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        $types = Type::all();
-        return view('admin.types.edit', compact('types'));
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -100,6 +99,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.types.index');
     }
 }
