@@ -12,49 +12,40 @@
                     </a>
                 </div>
 
-                <!-- Tabella progetti -->
+                <!-- Tabella tipi -->
                 <div class="table-responsive">
                     <table class="table table-hover table-striped align-middle shadow-sm">
                         <thead class="table-dark">
                             <tr>
-                                <th>ID</th>
+                                <th class="text-center">ID</th>
                                 <th>Name</th>
+                                <th class="text-center">Actions</th> <!-- Moved Actions column here -->
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($types as $type)
                                 <tr class="border-bottom">
-                                    <td>{{ $type->id }}</td>
+                                    <td class="text-center">{{ $type->id }}</td>
                                     <td class="fw-bold">{{ $type->name }}</td>
-                                    {{-- <td>{{ $project->date }}</td>
-                                    <td>{{ Str::limit($project->description, 50) }}</td>
-                                    @if (Str::startsWith($project->image_project, 'https'))
-                                        <td>
-                                            <img src="{{ $project->image_project }}" alt="{{ $project->name }}">
-                                        </td>
-                                    @else
-                                        <td>
-                                            <img src="{{ asset('storage/' . $project->image_project) }}"
-                                                alt="{{ $project->name }}" class="img-thumbnail">
-                                        </td>
-                                    @endif
-                                    <td>
-                                        <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
-                                            class="btn btn-outline-primary btn-sm">
-                                            <i class="bi bi-eye-fill fs-4"></i>
+                                    <td class="text-center"> <!-- Moved action buttons here -->
+                                        <a href="{{ route('admin.types.show', ['type' => $type->id]) }}"
+                                            class="btn btn-outline-primary btn-sm mx-1">
+                                            <i class="bi bi-eye-fill fs-5"></i>
                                         </a>
-                                        <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
-                                            class="btn btn-outline-warning btn-sm"><i class="bi bi-pen fs-4"></i></a>
+                                        <a href="{{ route('admin.types.edit', ['type' => $type->id]) }}"
+                                            class="btn btn-outline-warning btn-sm mx-1">
+                                            <i class="bi bi-pen fs-5"></i>
+                                        </a>
 
-                                        <form action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
+                                        <form action="{{ route('admin.types.destroy', ['type' => $type->id]) }}"
                                             method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-outline-danger btn-sm delete-Project">
-                                                <i class="bi bi-trash fs-4"></i>
+                                            <button type="submit" class="btn btn-outline-danger btn-sm mx-1 delete-type">
+                                                <i class="bi bi-trash fs-5"></i>
                                             </button>
                                         </form>
-                                    </td> --}}
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

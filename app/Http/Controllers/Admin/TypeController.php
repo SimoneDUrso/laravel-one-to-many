@@ -59,7 +59,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('admin.types.show', compact('type'));
     }
 
     /**
@@ -70,7 +70,8 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        $types = Type::all();
+        return view('admin.types.edit', compact('types'));
     }
 
     /**
@@ -82,7 +83,13 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $form_data = $request->validated();
+
+        $form_data['slug'] = Type::generateSlug($form_data['name']);
+
+        $type->update($form_data);
+
+        return redirect()->route('admin.types.show', compact('type'));
     }
 
     /**
