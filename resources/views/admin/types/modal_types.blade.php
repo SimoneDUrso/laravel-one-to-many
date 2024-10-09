@@ -2,11 +2,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="deleteTypeModalLabel">Eliminazione del progetto corrente</h1>
+                <h1 class="modal-title fs-5" id="deleteTypeModalLabel">Eliminazione del tipo corrente</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Sei sicuro di voler cancellare questo progetto?
+                Sei sicuro di voler cancellare questo tipo?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
